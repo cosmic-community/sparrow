@@ -21,6 +21,15 @@ export default function ProductGallery({ product }: ProductGalleryProps) {
   
   const selectedImage = images[selectedIndex]
   
+  // Changed: Add safety check for selectedImage to handle potential undefined case
+  if (!selectedImage) {
+    return (
+      <div className="bg-gray-100 rounded-lg h-96 flex items-center justify-center">
+        <p className="text-gray-400">Image not found</p>
+      </div>
+    )
+  }
+  
   return (
     <div className="space-y-4">
       {/* Main Image */}
